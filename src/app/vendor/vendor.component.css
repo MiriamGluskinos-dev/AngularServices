@@ -1,0 +1,273 @@
+/* בשביל שיראו את האיקונים מאז השינוי של הסרגל החדש */
+::ng-deep .ui-button-icon-only {
+    width: 2em;
+    box-sizing: border-box;
+    text-indent: 0px !important;
+    white-space: nowrap;
+    color: #285c7e !important;
+}
+/* כדי שלא יראו את כל המסגרות -מאז השינוי של הסרגל החדש */
+::ng-deep .ui-state-default{
+    border: none !important;
+    background: none !important;
+    color: #285c7e !important;
+
+}
+
+
+
+/* דריסה של הכוונים של הדפדוף */
+::ng-deep .ui-paginator {
+    direction: ltr !important;
+
+ }
+/* שנוי צבע הכפתור */
+
+
+/*  */
+::ng-deep .ui-datepicker {
+    display: block !important;
+}
+
+
+::ng-deep .ui-datepicker-header {
+    background-color: transparent !important;
+    border: none;
+}
+
+::ng-deep .ui-datepicker select.ui-datepicker-month, ::ng-deep .ui-datepicker select.ui-datepicker-year {
+    color: #285c7e !important;
+    filter: none;
+}
+
+::ng-deep .ui-datepicker-current-day .ui-state-active {
+    background-color: white !important;
+}
+
+::ng-deep .ui-datepicker-calendar-container .ui-state-default {
+    color: rgb(89, 89, 89);
+}
+
+::ng-deep .form-control {
+    /* #285c7e */
+    border: solid 1px #285c7e;
+    border-radius: 7px !important;
+    background-color: #fff;
+    padding: 0 5px 0 1.5em !important;
+    display: inline !important;
+}
+
+.table-responsive th, .table-responsive td {
+    padding: 5.5px !important;
+    text-align: center;
+   
+    
+}
+
+.table-responsive th{
+    font-size: 17px !important; 
+}
+.table-responsive td{
+    font-size: 15px !important; 
+}
+.table-responsive {
+    min-height: 350px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active:hover, ::ng-deep .ui-widget-header .ui-state-active {
+    color: #285c7e !important;
+    text-decoration: underline;
+    font-family: Arial;
+}
+
+.ui-column-title {
+    width: 140px;
+}
+
+::ng-deep .ui-listbox-item, ::ng-deep .ui-dropdown-item, ::ng-deep .ui-autocomplete-list-item {
+    text-align: right !important;
+}
+
+::ng-deep th .ui-autocomplete-list-item {
+    font-family: Arial;
+}
+
+::ng-deep th .ui-state-highlight {
+    font-weight: bold !important;
+    font-family: Arial !important;
+}
+
+::ng-deep .ui-state-highlight, ::ng-deep .ui-state-highlight mark {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-widget .filter {
+    font-family: Arial;
+   
+}
+
+::ng-deep .ui-autocomplete-dropdown {
+    top: 0;
+    left: 0;
+    display: block;
+    position: absolute;
+}
+
+::ng-deep .ui-autocomplete, ::ng-deep .ui-calendar {
+    width: 100%;
+}
+
+::ng-deep .text-right {
+    text-align: right !important;
+}
+
+::ng-deep .ui-calendar-button {
+    left: -3px;
+}
+
+@media (max-width: 640px) {
+    tr {
+        border-top: solid 2px #285c7e;
+    }
+    td {
+        text-align: right !important
+    }
+}
+
+/* הסתרת אייקון החיפוש במסך קטן */
+
+@media (max-width: 780px) {
+    .pi-search {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 868px) {
+    /* [inputStyleClass$='filter'] { */
+        /*display: none;*/
+    /* } */
+}
+
+
+
+/* הסתרת האיקון בלוח שנה במסך קטן */
+
+@media (max-width: 868px) {
+    [showIcon$='true'] {
+        display: none;
+    }
+}
+
+@media (max-width: 868px) {
+    .elem-pl {
+        padding-left: 10px;
+    }
+}
+
+::ng-deep .ui-paginator-element {
+    background-color: white !important;
+    color: #285c7e;
+    font-weight: normal;
+    font-family: Arial;
+    font-size: 17px !important;
+}
+
+::ng-deep .ui-paginator {
+    background-color: white !important;
+    border: none;
+    padding-top: 10px;
+}
+
+
+/* סידור החיצים בפקד התאריך מימין לשמאל  */
+
+::ng-deep .ui-datepicker-prev {
+    right: .125em !important;
+    left: auto !important;
+}
+
+::ng-deep .pi-chevron-left:before {
+    content: "\e901" !important;
+    color: #285c7e;
+}
+
+::ng-deep .ui-datepicker-next {
+    left: .125em !important;
+    right: auto !important;
+}
+
+::ng-deep .pi-chevron-right:before {
+    content: "\e900" !important;
+    color: #285c7e;
+}
+
+/* הסתרת אייקון מיון שמוצג קבוע על מנת שיוצג רק בעת מיון */
+::ng-deep .pi-sort
+{
+    display: none;
+}
+
+
+/* הגדרת צבע אייקונים של המיון */
+::ng-deep .pi-sort-up, ::ng-deep .pi-sort-down
+{
+    color:#285c7e;
+}
+
+
+::ng-deep .requiredClass
+{
+    border: solid 1px  red !important;
+    /* border:solid 1px;
+    border-color: red; */
+    /* border-radius: 7px !important; */
+    /* background-color: #fff; */
+    /* padding: 0 5px 0 1.5em !important; */
+    /* display: inline !important; */
+   
+}
+
+input.ng-invalid{
+    /* לפי תהילה */
+    /* border:solid 2px; */
+    border-color: red;
+}
+
+.input-error {
+    font-size: 14px;
+    color: #b60000;
+    width: 350px;
+    text-align: right;
+}
+
+.errorMsg {
+    background-color: #ffffff;
+    border: 2px solid #b60000;
+    border-radius: 8px;
+}
+
+.errorMsg .pi-info{
+    border: 4px solid #b60000;
+    border-radius: 22px;
+    margin: 10px;
+}
+
+.errorMsg .pi-info, .errorMsg .errMsgDetails {
+    display:inline-block;
+}
+
+.errorMsg .errMsgDetails {
+    vertical-align: super;
+    font-weight:bold;
+}
+
+
+
+
+

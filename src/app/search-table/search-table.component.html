@@ -1,0 +1,111 @@
+<app-page-header [pageTitle]="title" [descriptionLines]="descriptionLines"></app-page-header>
+
+<!-- Main Search -->
+<div class="row row-gov">
+  <div class="col-10 col-lg-6 lg-mb-30 xs-mb-25">
+    <form class="form-inline w-100" role="form">
+      <div class="form-group has-feedback w-100" style="position: relative; display: inline-block">
+
+        <label for="productSearchTxt" hidden>חפש מוצר</label>
+        <span class="pi pi-search form-control-feedback dark-blue-txt xs-p-7" style="position: absolute;left:0"></span>
+
+        <p-autoComplete name="productSearchTxt" inputId="productSearchTxt" styleClass="w-100"
+          inputStyleClass="reforma w-100 form-control txt gray-txt search-input text-right" placeholder="חפש מוצר...."
+          field="ProductLevel3" [size]="30" [minLength]="1" [suggestions]="filteredData"
+          [(ngModel)]="selectedProductMain" (completeMethod)="clearFilter(); searchData()" (onClear)="searchData()"
+          (onSelect)="clearFilter(); searchData();" autoHighlight>
+          <ng-template let-prod pTemplate="item">
+            <span class="ng-star-inserted">{{prod.ProductLevel3}} <mark
+                class="txt gray-txt white">{{prod.searchText}}</mark></span>
+          </ng-template>
+        </p-autoComplete>
+
+      </div>
+    </form>
+  </div>
+  <div class="col-2 col-lg-6 lg-mb-30 xs-mb-25">
+    <!-- CSV -->
+    <p class="nounderline pull-left pointer" title="Excel-CSV" (click)="dt.exportCSV()">
+      <i class="icon icons-excel blue-txt social-size" style="color:#207245!important;" ></i>
+    </p>
+  </div>
+</div>
+
+
+<!-- Data table -->
+<div class="row row-gov">
+  <div class="col-sm-12 table-responsive table-striped lg-mb-30 xs-mb-25">
+
+
+    <!-- Headers -->
+    <p-table [columns]="cols" [value]="filteredData" [responsive]="true" [paginator]="true" [rows]="50"
+      [first]="currentIndex" (onFilter)="dt.reset()" #dt>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th class="white blue-txt none-border-blue pb-0 text-center" *ngFor="let col of columns"
+            [ngSwitch]="col.field">
+            {{col.header}}
+
+
+            <!-- Filter Main Category (Category1 field)-->
+            <ng-container *ngSwitchCase="'ProductLevel1'">
+
+              <label for="mainCategoryFilter" hidden>חפש קטגוריה ראשית</label>
+              <p-autoComplete inputId="mainCategoryFilter" [suggestions]="mainCategoryList" field="ProductLevel1"
+                [dropdown]="true" [required]="true" scrollHeight="400px" [size]="30" placeholder="הכל" [minLength]="1"
+                inputStyleClass="form-control txt gray-txt search-input text-right filter"
+                [(ngModel)]="selectedMainCategory" (completeMethod)="searchMainCategory()"
+                (onClear)="searchMainCategory()" (onSelect)="searchMainCategory()"
+                (onDropdownClick)="initMainCategoryList(gridData)" autoHighlight>
+              </p-autoComplete>
+
+            </ng-container>
+
+
+            <!-- Filter Sub Category (Category2 field)-->
+            <ng-container *ngSwitchCase="'ProductLevel2'">
+
+              <label for="categorySearchFilter" hidden>חפש קטגוריה משנית</label>
+              <p-autoComplete inputId="categorySearchFilter" [suggestions]="categoryList" field="ProductLevel2"
+                [dropdown]="true" [required]="true" [size]="30" scrollHeight="400px" placeholder="הכל" [minLength]="1"
+                inputStyleClass="form-control txt gray-txt search-input text-right filter"
+                [(ngModel)]="selectedCategory" (completeMethod)="searchSubCategory()" (onClear)="searchSubCategory()"
+                (onSelect)="searchSubCategory()" (onDropdownClick)="initCategoryList(gridData);" autoHighlight>
+              </p-autoComplete>
+
+            </ng-container>
+
+
+            <!-- Filter product (product field)-->
+            <ng-container *ngSwitchCase="'ProductLevel3'">
+
+              <label for="productSearchFilter" hidden>חפש מוצר</label>
+              <p-autoComplete *ngIf="selectedCategory" inputId="productSearchFilter" [suggestions]="productList"
+                field="ProductLevel3" [dropdown]="true" [required]="true" [size]="30" scrollHeight="400px"
+                placeholder="הכל" [minLength]="1"
+                inputStyleClass="form-control txt gray-txt search-input text-right filter" [(ngModel)]="selectedProduct"
+                (completeMethod)="searchSubProduct()" (onClear)="searchSubProduct()" (onSelect)="searchSubProduct()"
+                (onDropdownClick)="initProductList(gridData)" autoHighlight>
+              </p-autoComplete>
+
+            </ng-container>
+
+          </th>
+      </ng-template>
+
+
+      <!-- Data -->
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td class="dark-grey-txt description-txt" *ngFor="let col of columns"
+            [ngClass]="(col.field == 'UpTo75_' || col.field == 'From500_To1000_' || col.field == 'From500_To1000_' || col.field == 'Over1000_') ? 'text-center' : ''">
+            <span class="ui-column-title">{{col.header}}</span>
+            {{rowData[col.field]}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+   
+  </div>
+</div>

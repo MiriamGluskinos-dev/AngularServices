@@ -1,0 +1,169 @@
+<app-page-header [pageTitle]="title" [descriptionLines]="descriptionLines"></app-page-header>
+<!-- <script src="https://www.google.com/recaptcha/api.js?render=6LcsWN4UAAAAAHsiBVkGFzwYBBOY7NPjsXP2SLAG"></script> -->
+
+<div class="row row-gov">
+
+  <div class="col-12 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <ng-template [ngIf]="flagRequiredCountry">
+      <label class="labelFor" for="country"></label>
+      <p-autoComplete inputId="country" name="country" [suggestions]="filteredDataCountry" [dropdown]="true"
+        [required]="true" scrollHeight="400px" [size]="30" placeholder="מדינה" [minLength]="1"
+        inputStyleClass="form-control txt gray-txt search-input text-right filter requiredClass "
+        (completeMethod)="filterCountry()" [(ngModel)]="selectedCountryList" autoHighlight field="Name"
+        (onSelect)="searchData(); filterCountry();flagErrorFeildCountryFunc();" (onClear)="clearFilter()"
+        (onDropdownClick)="initCountyTablesList(StatesList)">
+
+
+      </p-autoComplete>
+      <div class="input-error" style="display: block;" *ngIf="flagRequiredCountry&&flagErrorFeildCountry">
+        שדה זה הוא שדה חובה</div>
+
+    </ng-template>
+
+
+    <ng-template [ngIf]="flagNotRequiredCountry">
+      <label class="labelFor" for="country"></label>
+      <p-autoComplete inputId="country" name="country" [suggestions]="filteredDataCountry" [dropdown]="true"
+        [required]="true" scrollHeight="400px" [size]="30" placeholder="מדינה" [minLength]="1"
+        inputStyleClass="form-control txt gray-txt search-input text-right filter" (completeMethod)="filterCountry()"
+        [(ngModel)]="selectedCountryList" autoHighlight (onSelect)="searchData(); filterCountry();"
+        (onClear)="clearFilter()" field="Name" (onDropdownClick)="initCountyTablesList(StatesList)">
+
+      </p-autoComplete>
+
+    </ng-template>
+  </div>
+
+
+
+  <div class="col-12 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="type"></label>
+    <ng-template [ngIf]="flagRequiredType">
+      <p-autoComplete inputId="type" name="type" [suggestions]="filteredDataType" [dropdown]="true" [required]="true"
+        scrollHeight="400px" [size]="30" placeholder="סוג" [minLength]="1" required
+        inputStyleClass="form-control txt gray-txt search-input text-right filter requiredClass"
+        (completeMethod)="filterType()" [(ngModel)]="selectedTypeList"
+        (onSelect)="searchData();flagErrorFeildTypeFunc();" (onClear)="filterType()" field="Name" autoHighlight
+        (onDropdownClick)="initTypeTablesList(typeList)">
+      </p-autoComplete>
+      <div class="input-error" style="display: block;" *ngIf="flagRequiredType&&flagErrorFeildType">
+        שדה זה הוא שדה חובה</div>
+    </ng-template>
+
+    <ng-template [ngIf]="flagNotRequiredType">
+      <label class="labelFor" for="type"></label>
+      <p-autoComplete inputId="type" [suggestions]="filteredDataType" [dropdown]="true" [required]="true"
+        scrollHeight="400px" [size]="30" placeholder="סוג" [minLength]="1" required
+        (onDropdownClick)="initTypeTablesList(typeList)"
+        inputStyleClass="form-control txt gray-txt search-input text-right filter" (completeMethod)="filterType()"
+        field="Name" [(ngModel)]="selectedTypeList" (onSelect)="searchData();" (onClear)="clearFilter()" autoHighlight>
+      </p-autoComplete>
+    </ng-template>
+
+  </div>
+
+</div>
+
+
+
+<div class="row row-gov">
+
+  <div class="col-12 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="textNameNumber"></label>
+
+    <input type="text" inputId="textNameNumber" [(ngModel)]="textNameNumber" placeholder="מספר מזהה שם"
+      class=" form-control txt gray-txt search-input text-right filter" title='מזהה הספק/לקוח חו"ל במערכת שער עולמי'>
+  </div>
+
+  <div class="col-12 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="textVendorName"></label>
+    <input type="text" id="textVendorName" [(ngModel)]="textVendorName" placeholder="שם ספק /לקוח חול"
+      class=" w-100 form-control txt gray-txt search-input text-right" (blur)="searchData()"
+      title='יש להזין משם הספק/לקוח חו"ל לפחות 2 תווים רצופים מסוג אותיות אנגליות או ספרות'>
+
+  </div>  
+
+</div>
+
+<!-- תוספת לחיפוש לפי קוד AEO -->
+ <ng-template [ngIf]="flagNotRequiredType&&vendorId==1">
+ 
+<div class="row row-gov"  >
+ 
+  <div class="col-12 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="textAEONumber"></label>
+
+    <input type="text" inputId="textAEONumber" [(ngModel)]="textAEONumber" placeholder="AEO מספר"
+      class=" form-control txt gray-txt search-input text-right filter" title='AEO מספר'>
+  </div>
+
+</div>
+</ng-template>
+<!--  -->
+
+<div class="row row-gov">
+  <div class="col-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <form id="my_captcha_form">
+     
+        <p-captcha #cpt siteKey='{{siteKey}}' 
+          initCallback="loadCaptcha"
+          (onResponse)="showResponse($event)"
+          size="invisible" language="iw"></p-captcha>
+         
+      <button pButton icon="pi pi-search" iconPos="right" label="חיפוש" type="submit" value="submit"
+        (click)="checkRequiredFields()"
+        style="color:white!important;background-color:#285c7e!important;border-radius: 7px ;direction: ltr;"></button>
+    </form>
+
+  </div>
+
+
+  <div class="col-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25">
+    <p class="nounderline pull-left pointer " title="Excel-CSV" (click)="table.exportCSV()">
+      <i class="icon icons-excel blue-txt social-size" style="color:#207245!important"></i>
+    </p>
+  </div>
+</div>
+
+
+<!-- Table -->
+<div *ngIf="((flag==true)&&(flagservice==false))" class="row row-gov">
+  <div class="errorMsg col-10 col-lg-8 lg-mb-30 xs-mb-25">
+    <i class="pi pi-info" iconPos="right" style="font-size: 2em;"></i>
+    <div class='errMsgDetails'>{{mes}}</div>
+  </div>
+
+</div>
+
+<div *ngIf="flag&&flagservice" class="row row-gov">
+  {{mesResult}}
+  </div>
+
+
+<div class="row row-gov" *ngIf="flag&&flagservice">
+  <div class="col-sm-12 table-responsive table-striped lg-mb-30 xs-mb-25">
+
+    <p-table [columns]="columns" [value]="vendorsTable" [responsive]="true" [paginator]="true" [rows]="30"
+      [first]="currentIndex" (onFilter)="dt.reset()" #dt>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="font-size: 15px"
+            class="white blue-txt none-border-blue pb-0 text-center">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData>
+        <tr>
+          <td class="dark-grey-txt description-txt" *ngFor="let col of columns">
+            <span class="ui-column-title">{{col.header}}</span>
+            {{rowData[col.field]}}
+          </td>
+        
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+</div>
+

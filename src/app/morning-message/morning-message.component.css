@@ -1,0 +1,329 @@
+
+/* ::ng-deep .ui-datepicker
+{
+    display: block !important;
+}
+
+.labelFor{
+    display: block;
+    margin-bottom: 0px;
+}
+
+::ng-deep .form-control{
+    border:solid 1px #285c7e;
+    border-radius:7px !important;
+    height:32px;
+    background-color:#fff;
+    padding:0 5px 0 1.5em !important;
+}
+
+
+
+::ng-deep .ui-listbox-item, ::ng-deep .ui-dropdown-item, ::ng-deep .ui-autocomplete-list-item{
+    text-align:right !important;
+}
+
+ ::ng-deep th .ui-autocomplete-list-item{
+    font-family: Arial;
+}
+
+::ng-deep th .ui-state-highlight {
+    font-weight: bold !important;
+    font-family: Arial !important;
+}
+
+::ng-deep .ui-state-highlight, ::ng-deep .ui-state-highlight mark  {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-widget .filter
+{
+    font-family: Arial;
+}
+
+::ng-deep .ui-autocomplete-dropdown{
+    top:0;
+    left: 0;
+    display: block;
+    position: absolute;
+}
+
+::ng-deep .ui-autocomplete,  ::ng-deep .ui-calendar
+{
+    width: 100%;
+}
+
+::ng-deep .text-right{
+    text-align: right !important;
+}
+דברים שאני דרסתי */
+::ng-deep .ui-datepicker {
+    display: block !important;
+}
+
+
+::ng-deep .ui-datepicker-header {
+    background-color: transparent !important;
+    border: none;
+}
+
+::ng-deep .ui-datepicker select.ui-datepicker-month, ::ng-deep .ui-datepicker select.ui-datepicker-year {
+    color: #285c7e !important;
+    filter: none;
+}
+
+::ng-deep .ui-datepicker-current-day .ui-state-active {
+    background-color: white !important;
+}
+
+::ng-deep .ui-datepicker-calendar-container .ui-state-default {
+    color: rgb(89, 89, 89);
+}
+
+::ng-deep .form-control {
+    border: solid 1px #285c7e;
+    border-radius: 7px !important;
+    background-color: #fff;
+    padding: 0 5px 0 1.5em !important;
+    display: inline !important;
+}
+
+.table-responsive th, .table-responsive td {
+    padding: 5.5px !important;
+}
+
+.table-responsive {
+    min-height: 350px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active:hover, ::ng-deep .ui-widget-header .ui-state-active {
+    color: #285c7e !important;
+    text-decoration: underline;
+    font-family: Arial;
+}
+
+.ui-column-title {
+    width: 140px;
+}
+
+::ng-deep .ui-listbox-item, ::ng-deep .ui-dropdown-item, ::ng-deep .ui-autocomplete-list-item {
+    text-align: right !important;
+}
+
+::ng-deep th .ui-autocomplete-list-item {
+    font-family: Arial;
+}
+
+::ng-deep th .ui-state-highlight {
+    font-weight: bold !important;
+    font-family: Arial !important;
+}
+
+::ng-deep .ui-state-highlight, ::ng-deep .ui-state-highlight mark {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-widget .filter {
+    font-family: Arial;
+}
+
+::ng-deep .ui-autocomplete-dropdown {
+    top: 0;
+    left: 0;
+    display: block;
+    position: absolute;
+}
+
+::ng-deep .ui-autocomplete, ::ng-deep .ui-calendar {
+    width: 100%;
+}
+
+::ng-deep .text-right {
+    text-align: right !important;
+}
+
+::ng-deep .ui-calendar-button {
+    left: -3px;
+}
+
+@media (max-width: 640px) {
+    tr {
+        border-top: solid 2px #285c7e;
+    }
+    td {
+        text-align: right !important
+    }
+}
+
+/* הסתרת אייקון החיפוש במסך קטן */
+
+@media (max-width: 780px) {
+    .pi-search {
+        display: none;
+    }
+}
+
+/* הסתרת הפילטורים במסך קטן */
+
+@media (max-width: 868px) {
+    [inputStyleClass$='filter'] {
+        display: none;
+    }
+}
+
+/*לבדוק למה לא עובד?? */
+
+/* הסתרת האיקון בלוח שנה במסך קטן */
+
+@media (max-width: 868px) {
+    [showIcon$='true'] {
+        display: none;
+    }
+}
+
+@media (max-width: 868px) {
+    .elem-pl {
+        padding-left: 10px;
+    }
+}
+
+::ng-deep .ui-paginator-element {
+    background-color: white !important;
+    color: #285c7e;
+    font-weight: normal;
+    font-family: Arial;
+    font-size: 17px !important;
+}
+
+::ng-deep .ui-paginator {
+    background-color: white !important;
+    border: none;
+    padding-top: 10px;
+}
+
+
+/* סידור החיצים בפקד התאריך מימין לשמאל  */
+
+::ng-deep .ui-datepicker-prev {
+    right: .125em !important;
+    left: auto !important;
+}
+
+::ng-deep .pi-chevron-left:before {
+    content: "\e901" !important;
+    color: #285c7e;
+}
+
+::ng-deep .ui-datepicker-next {
+    left: .125em !important;
+    right: auto !important;
+}
+
+::ng-deep .pi-chevron-right:before {
+    content: "\e900" !important;
+    color: #285c7e;
+}
+
+/* הסתרת אייקון מיון שמוצג קבוע על מנת שיוצג רק בעת מיון */
+::ng-deep .pi-sort
+{
+    display: none;
+}
+
+/* מפה ואילך אמורה להיות */
+/* הגדרת צבע אייקונים של המיון */
+::ng-deep .pi-sort-up, ::ng-deep .pi-sort-down
+{
+    color:#285c7e;
+}
+/* דריסות שאני עשיתי בשביל הטבלה */
+::ng-deep.ui-state-active
+{
+    /* זה הבעיתי כנראה */
+   background-color: white; 
+   color: #285c7e;
+}
+
+::ng-deep .ui-accordion-header-text
+{
+   color:#285c7e;
+   text-align: right;
+   font-weight: bold;
+
+}
+::ng-deep .ui-accordion
+{
+    color:#285c7e;
+    /* direction: rtl; */
+
+}
+::ng-deep .pi-caret-right:before {
+    content: "\e905";
+    color:#285c7e;
+   text-align: right;
+
+}
+/* שיהיה בצד ימין */
+/* ::ng-deep .ui-state-default a,::ng-deep .ui-state-default, ::ng-deep a:link,::ng-deep .ui-state-default ,::ng-deep a:visited  */
+::ng-deep .ui-state-default  {
+    color: #555;
+    text-decoration: none;
+    /* את זה הוספתי */
+    text-align: right;
+}
+
+/* מה שנפתח  */
+::ng-deep .ui-widget-content {
+
+     /* border: 1px solid #bdbdbd; ודרסתי את המסגרת  זה היה המקור */
+     /* זה הדריסה של */
+     border: none;
+     color: #222;
+}
+
+
+::ng-deep .ui-accordion {
+    /*  דרסתי את זה */
+    /* padding: 1em; */
+      padding: 0em;
+      border-top: 0;
+      overflow: visible;
+      zoom: 1;
+      /* text-align: right; */
+  }
+  /* הזחת טקסט פנימי -דרסתי את זה */
+   ::ng-deep .ui-accordion-content{
+      padding-right: 2.5em !important;
+  } 
+
+
+   ::ng-deep.ui-accordion ::ng-deep.ui-accordion-header a {
+      padding: 0.571em 1em;
+      border: 1px solid #c8c8c8;
+      color: #333333;
+      background-color: #f4f4f4;
+      color: #333333;
+      font-weight: 700;
+      -moz-transition: background-color 0.2s;
+      -o-transition: background-color 0.2s;
+      -webkit-transition: background-color 0.2s;
+      transition: background-color 0.2s;
+  } 
+
+  ::ng-deep .ui-accordion .ui-accordion-content {
+      /* width: 98.5%; */
+      border: 1px solid #c8c8c8; 
+      background-color: #ffffff;
+      color: #333333;
+      padding: 0.571em 1em;
+  }
+  /* הכתב של האטוקומפלט */
+  ::ng-deep  .ui-widget  {
+    font-size: 17px !important;
+  }
+   
+    

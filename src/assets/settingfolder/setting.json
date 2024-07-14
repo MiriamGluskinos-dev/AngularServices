@@ -1,0 +1,5 @@
+{
+    "webApiBaseUrl": "http://data.gov.il/api/action",
+    "headerUrl": "/header.html",
+    "footerUrl": "/footer.html"
+}

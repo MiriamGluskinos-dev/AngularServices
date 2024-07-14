@@ -1,0 +1,305 @@
+<!-- :הבוטסטראפ של הרווחים בין המללל לכפתור לא טוב -->
+<!-- <div class="col-xs-6 col-sm-2 col-lg-1 lg-mb-30 xs-mb-25 xs-pl-15"></div> -->
+<div class="example1 row row-gov">
+  <br>
+  <div class="row row-gov lg-mb-30 xs-mb-25">
+
+    <div class="row row-gov">
+      <div class="col-xs-6 col-sm-2 col-lg-1 lg-mb-30 xs-mb-25 xs-pl-15">
+        <p-radioButton name="group1" value="מטען:" label="מטען:" [(ngModel)]="val1" (onClick)="cargoChoice()"
+          inputId="opt1"></p-radioButton>
+
+
+      </div>
+      <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+        <label class="labelFor" for="CargoList"></label>
+        <p-autoComplete inputId="CargoList" [suggestions]="filterCargoList" [dropdown]="true" scrollHeight="400px"
+          [size]="30" placeholder="ימי" [minLength]="1" field="name" (onSelect)="UpDateFlag()"
+          [disabled]="flagDisableCargo" inputStyleClass="form-control txt gray-txt search-input text-right filter"
+          (completeMethod)="filterCargo()" [(ngModel)]="selectedCargoList" (onDropdownClick)="initCargoList(cargoList)"
+          autoHighlight>
+        </p-autoComplete>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="horizontal-line-lightGrey"></div>
+    </div>
+    <br>
+    <div>
+      <!-- מצהר מלא,ימי,מכולות ריקות -->
+
+      <ng-template [ngIf]="flagYami">
+        <div class="row row-gov">
+
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="NumberManifest"></label>
+
+            <input type="text" inputId="NumberManifest" [(ngModel)]="textNumberManifest" placeholder="מספר מצהר"
+              id="NumberManifest" name="NumberManifest" title="6 ספרות" #NumberManifest="ngModel"
+              [attr.disabled]="flagDisableCargo ? '' : null" [class.isDisabled]="true"
+              class=" form-control txt gray-txt search-input text-right filter " required>
+            <div class="input-error" style="display: block;"
+              *ngIf="NumberManifest.invalid && ( NumberManifest.touched)">שדה
+              זה הוא שדה חובה</div>
+
+          </div>
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="NumberTransaction"></label>
+            <input type="text" inputId="NumberTransaction" [(ngModel)]="textNumberTransaction" placeholder="מספר עסקה"
+              id="NumberTransaction" name="NumberTransaction" title="10  ערכים כולל האות i בהתחלה"
+              [attr.disabled]="flagDisableCargo ? '' : null" #NumberTransaction="ngModel"
+              class=" form-control txt gray-txt search-input text-right filter " required>
+            <div class="input-error" style="display: block;"
+              *ngIf="NumberTransaction.invalid && ( NumberTransaction.touched)">שדה זה הוא שדה חובה</div>
+          </div>
+          <div class="col-xs-2 col-lg-8 lg-mb-15 xs-mb-25">
+            <!-- CSV -->
+            <p class="nounderline pull-left pointer" title="Excel-CSV" (click)="dt.exportCSV()">
+              <i class="icon icons-excel blue-txt social-size" style="color:#207245"></i>
+            </p>
+          </div>
+        </div>
+        <div class="row row-gov">
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="textNumberContainer"></label>
+            <input type="text" inputId="textNumberContainer" [(ngModel)]="textNumberContainer" placeholder="מספר מכולה"
+              [attr.disabled]="flagDisableCargo ? '' : null" title="4 אותיות +7 ספרות"
+              class=" form-control txt gray-txt search-input text-right filter">
+
+          </div>
+
+        </div>
+      </ng-template>
+
+      <!-- אווירי -->
+      <ng-template [ngIf]="flagAviri">
+        <div class="row row-gov">
+
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="Year"></label>
+            <input type="text" inputId="Year" [(ngModel)]="textYear" placeholder="שנה" id="Year" name="Year"
+              #Year="ngModel" title="הכנס שנה-4 ספרות" [attr.disabled]="flagDisableCargo ? '' : null"
+              class=" form-control txt gray-txt search-input text-right filter " required>
+            <div class="input-error" style="display: block;" *ngIf="Year.invalid && ( Year.touched)">שדה זה הוא שדה חובה
+            </div>
+
+          </div>
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="NumberBillCargo"></label>
+            <input type="text" inputId="NumberBillCargo" [(ngModel)]="textNumberBillCargo" placeholder="מספר שטר מטען"
+              [attr.disabled]="flagDisableCargo ? '' : null" id="NumberBillCargo" name="NumberBillCargo"
+              title="12 ערכים ,כולל המקף באמצע" #NumberBillCargo="ngModel"
+              class=" form-control txt gray-txt search-input text-right filter " required>
+            <div class="input-error" style="display: block;"
+              *ngIf="NumberBillCargo.invalid && ( NumberBillCargo.touched)">
+              שדה זה הוא שדה חובה</div>
+
+          </div>
+          <div class="col-xs-2 col-lg-8 lg-mb-15 xs-mb-25">
+            <!-- CSV -->
+            <p class="nounderline pull-left pointer" title="Excel-CSV" (click)="dt.exportCSV()">
+              <i class="icon icons-excel blue-txt social-size" style="color:#207245"></i>
+            </p>
+          </div>
+        </div>
+        <div class="row row-gov">
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="textNumberBillCargoInternal"></label>
+            <input type="text" inputId="textNumberBillCargoInternal" [(ngModel)]="textNumberBillCargoInternal"
+              [attr.disabled]="flagDisableCargo ? '' : null" placeholder="מספר שטר מטען פנימי"
+              class=" form-control txt gray-txt search-input text-right filter">
+
+          </div>
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="textNumberContainer"></label>
+            <input type="text" inputId="textNumberContainer" [(ngModel)]="textNumberContainer" placeholder="מספר מכולה"
+              [attr.disabled]="flagDisableCargo ? '' : null"
+              class=" form-control txt gray-txt search-input text-right filter">
+
+          </div>
+
+        </div>
+      </ng-template>
+      <!-- יבשתי -->
+      <ng-template [ngIf]="flagYabasha">
+        <div class="row row-gov">
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="NumberTransaction"></label>
+            <input type="text" inputId="NumberTransaction" [(ngModel)]="textNumberTransaction" placeholder="מספר עסקה"
+              id="NumberTransaction" name="NumberTransaction" title="16  ערכים כולל האות i בהתחלה"
+              [attr.disabled]="flagDisableCargo ? '' : null" #NumberTransaction="ngModel"
+              class=" form-control txt gray-txt search-input text-right filter " required>
+            <div class="input-error" style="display: block;"
+              *ngIf="NumberTransaction.invalid && ( NumberTransaction.touched)">
+              שדה זה הוא שדה חובה</div>
+
+          </div>
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="textNumberContainer"></label>
+            <input type="text" inputId="textNumberContainer" [(ngModel)]="textNumberContainer" placeholder="מספר מכולה"
+              [attr.disabled]="flagDisableCargo ? '' : null" title="4 אותיות +7 ספרות"
+              class=" form-control txt gray-txt search-input text-right filter">
+
+          </div>
+        </div>
+      </ng-template>
+      <!-- מטען בלדר -->
+      <ng-template [ngIf]="flagBaldarCargo">
+        <div class="row row-gov">
+
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="BaldarCargo"></label>
+            <input type="text" inputId="BaldarCargo" [(ngModel)]="textNumberBaldarCargo"
+              placeholder="מספר שטר מטען בלדר" id="BaldarCargo" name="BaldarCargo" #BaldarCargo="ngModel"
+              [attr.disabled]="flagDisableCargo ? '' : null"
+              class=" form-control txt gray-txt search-input text-right filter " required>
+            <div class="input-error" style="display: block;" *ngIf="BaldarCargo.invalid && ( BaldarCargo.touched)">
+              שדה זה הוא שדה חובה</div>
+
+          </div>
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="Baldar"></label>
+            <input type="text" inputId="Baldar" [(ngModel)]="textBaldar" placeholder="ח.פ בלדר" id="Baldar"
+              [attr.disabled]="flagDisableCargo ? '' : null" #Baldar="ngModel" name="Baldar"
+              class=" form-control txt gray-txt search-input text-right filter " required>
+            <div class="input-error" style="display: block;" *ngIf="Baldar.invalid && ( Baldar.touched)">
+              שדה זה הוא שדה חובה</div>
+
+          </div>
+          <div class="col-xs-2 col-lg-8 lg-mb-15 xs-mb-25">
+            <!-- CSV -->
+            <p class="nounderline pull-left pointer" title="Excel-CSV" (click)="dt.exportCSV()">
+              <i class="icon icons-excel blue-txt social-size" style="color:#207245"></i>
+            </p>
+          </div>
+        </div>
+        <div class="row row-gov">
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="DateOfEstablishment"></label>
+            <input type="text" inputId="DateOfEstablishment" [(ngModel)]="textDateOfEstablishment"
+              id="DateOfEstablishment" name="DateOfEstablishment"
+              title="השדה חייב להיות ערך נומרי באורך 6 תווים (YYMMDD)." placeholder="תאריך הקמה"
+              [attr.disabled]="flagDisableCargo ? '' : null" #DateOfEstablishment="ngModel"
+              class=" form-control txt gray-txt search-input text-right filter" required>
+            <div class="input-error" style="display: block;"
+              *ngIf="DateOfEstablishment.invalid && ( DateOfEstablishment.touched)">
+              שדה זה הוא שדה חובה</div>
+
+          </div>
+          <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+            <label class="labelFor" for="textNumberContainer"></label>
+            <input type="text" inputId="textNumberContainer" [(ngModel)]="textNumberContainer" placeholder="מספר מכולה"
+              [attr.disabled]="flagDisableCargo ? '' : null"
+              class=" form-control txt gray-txt search-input text-right filter">
+
+          </div>
+
+        </div>
+      </ng-template>
+
+    </div>
+    <!-- כללי -->
+    <div class="row row-gov">
+      <!-- Title -->
+      <div class="col-xs-12">
+        <h2 class="description-txt dark-blue-txt lg-mb-30 xs-mb-10  reforma-medium">
+          <p>
+            חיפוש מתקדם לפי תנועות מטען:
+          </p>
+
+        </h2>
+      </div>
+    </div>
+    <div class="row row-gov">
+      <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+        <label class="labelFor" for="ReferenceList"></label>
+        <p-autoComplete inputId="ReferenceList" [suggestions]="filterReferenceList" [dropdown]="true"
+          scrollHeight="400px" [size]="30" placeholder="סוג אסמכתא" [minLength]="1"
+          inputStyleClass="form-control txt gray-txt search-input text-right filter" [disabled]="flagDisableCargo"
+          (completeMethod)="filterReference()" [(ngModel)]="selectedReferenceList" autoHighlight>
+        </p-autoComplete>
+      </div>
+      <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+        <label class="labelFor" for="NumberReference"> </label>
+        <input type="text" inputId="NumberReference" [(ngModel)]="textNumberReference" placeholder="מספר אסמכתא"
+          [attr.disabled]="flagDisableCargo ? '' : null"
+          class=" form-control txt gray-txt search-input text-right filter">
+      </div>
+      <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+        <label class="labelFor" for="NumberDiploma"></label>
+        <input type="text" inputId="NumberDiploma" [(ngModel)]="textNumberDiploma" placeholder="מספר תעודה"
+          [attr.disabled]="flagDisableCargo ? '' : null"
+          class=" form-control txt gray-txt search-input text-right filter">
+      </div>
+
+    </div>
+    <div class="row row-gov">
+      <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+        <label class="labelFor" for="ExitSiteList"></label>
+        <p-autoComplete inputId="ExitSiteList" [suggestions]="filterExitSiteList" [dropdown]="true" scrollHeight="400px"
+          [size]="30" placeholder="אתר יציאה" [minLength]="1" [disabled]="flagDisableCargo"
+          inputStyleClass="form-control txt gray-txt search-input text-right filter" (completeMethod)="filterExitSite()"
+          [(ngModel)]="selectedExitSiteList" autoHighlight>
+        </p-autoComplete>
+      </div>
+      <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+        <label class="labelFor" for="EnterSiteList"></label>
+        <p-autoComplete inputId="EnterSiteList" [suggestions]="filterEnterSiteList" [dropdown]="true"
+          scrollHeight="400px" [size]="30" placeholder="אתר כניסה" [minLength]="1"
+          inputStyleClass="form-control txt gray-txt search-input text-right filter" [disabled]="flagDisableCargo"
+          (completeMethod)="filterEnterSite()" [(ngModel)]="selectedEnterSiteList" autoHighlight>
+        </p-autoComplete>
+      </div>
+
+    </div>
+    <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25  xs-pl-15"
+      [attr.disabled]="flagDisableCargo ? true : null">
+      <label class="labelFor" for="fromDate"></label>
+      <p-calendar inputId="fromDate" [(ngModel)]="fromDate" [showIcon]="true" [monthNavigator]="true"
+        [disabled]="flagDisableCargo" [yearNavigator]="true" yearRange="2000:2019" [locale]="heIL" dateFormat="dd/mm/yy"
+        placeholder="מתאריך" (onSelect)="searchData()"
+        inputStyleClass="w-100 form-control txt gray-txt search-input text-right">
+      </p-calendar>
+    </div>
+
+    <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+      <label class="labelFor" for="toDate"></label>
+      <p-calendar inputId="toDate" [(ngModel)]="toDate" [monthNavigator]="true" [yearNavigator]="true"
+        yearRange="2000:2019-" [locale]="heIL" dateFormat="dd/mm/yy" placeholder="עד תאריך" [showIcon]="true"
+        (onSelect)="searchData()" [disabled]="flagDisableCargo"
+        inputStyleClass="w-100 form-control txt gray-txt search-input text-right">
+      </p-calendar>
+    </div>
+
+  </div>
+  <!-- <div class="row row-gov lg-mb-30 xs-mb-25">
+  <div class="col-md-12">
+    <div class="horizontal-line-lightGrey"></div>
+  </div>
+</div> -->
+</div>
+<br>
+<div row row-gov class="example1 ">
+  <br>
+  <p-radioButton name="group1" value="מכולה:" label="מכולה:" [(ngModel)]="val1" inputId="opt2"
+    (onClick)="containerChoice()"></p-radioButton>
+  <br><br>
+  <div class="col-md-12">
+    <div class="horizontal-line-lightGrey"></div>
+  </div> <br><br>
+  <div class="row row-gov">
+    <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+      <label class="labelFor" for="textNumberContainer"></label>
+      <input type="text" inputId="textNumberContainer" [(ngModel)]="textNumberContainer" placeholder="מספר מכולה"
+        title="4 אותיות +7 ספרות" class=" form-control txt gray-txt search-input text-right filter"
+        [attr.disabled]="flagDisableContainer ? '' : null">
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- עד כאן נסיון לרדיו בטטון -->

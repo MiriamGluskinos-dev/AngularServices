@@ -1,0 +1,73 @@
+
+
+<div class="row row-gov">
+
+  <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25  xs-pl-15">
+    <label class="labelFor" for="fromDate"></label>
+    <p-calendar inputId="fromDate" [(ngModel)]="fromDate" [showIcon]="true" [monthNavigator]="true"
+      [yearNavigator]="true" yearRange="2000:2019" [locale]="heIL" dateFormat="dd/mm/yy" placeholder="מתאריך"
+      (onSelect)="searchData()" inputStyleClass="w-100 form-control txt gray-txt search-input text-right"></p-calendar>
+  </div>
+
+  <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="toDate"></label>
+    <p-calendar inputId="toDate" [(ngModel)]="toDate" [monthNavigator]="true" [yearNavigator]="true"
+      yearRange="2000:2019" [locale]="heIL" dateFormat="dd/mm/yy" placeholder="עד תאריך" [showIcon]="true"
+      (onSelect)="searchData()" inputStyleClass="w-100 form-control txt gray-txt search-input text-right"></p-calendar>
+  </div>
+
+  
+</div>
+
+<div class="row row-gov">
+
+  <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="textTitle"></label>
+    <input type="text" inputId="textTitle" [(ngModel)]="textTitle" placeholder="טקסט בכותרת"
+      class=" w-100 form-control txt gray-txt search-input text-right">
+
+  </div>
+
+  <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="textContent"></label>
+    <input type="text" id="textContent" [(ngModel)]="textContent" placeholder="טקסט בתוכן"
+      class=" w-100 form-control txt gray-txt search-input text-right">
+  </div>
+
+</div>
+
+<div class="row row-gov">
+
+  <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <label class="labelFor" for="addresseeType"></label>
+    <p-autoComplete inputId="addresseeType" [suggestions]="filtersAddresseeTypeList" [dropdown]="true" [required]="true"
+      scrollHeight="400px" [size]="30" placeholder="סוג נמען" [minLength]="1"
+      inputStyleClass="form-control txt gray-txt search-input text-right filter" (completeMethod)="filterAddress()"
+      (onSelect)="searchData()" [(ngModel)]="selectedAddresseeTypeList" autoHighlight
+      (onDropdownClick)="initAddressList(addresseeTypeList)" styleClass="w-100">
+
+    </p-autoComplete>
+  </div>
+
+  <div class="col-xs-6 col-sm-2 col-lg-2 lg-mb-30 xs-mb-25 xs-pl-15">
+    <p-autoComplete inputId="messageType" [suggestions]="filterMessageTypeList" [dropdown]="true" [required]="true"
+      scrollHeight="400px" [size]="30" placeholder="סוג הודעה" [minLength]="1"
+      inputStyleClass="form-control txt gray-txt search-input text-right filter" (completeMethod)="filterMessage()"
+      [(ngModel)]="selectedMessageTypeList" autoHighlight (onDropdownClick)="initMessageList(messageTypeList)">
+    </p-autoComplete>
+  </div>
+
+  
+
+</div>
+
+
+
+<p-accordion [multiple]="true" *ngFor="let col of this.addresseeTypeList">
+  <p-accordionTab header={{col}}>
+    {{col}}
+  </p-accordionTab>
+
+</p-accordion>
+
+<br><br>

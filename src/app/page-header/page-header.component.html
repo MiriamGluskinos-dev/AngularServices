@@ -1,0 +1,84 @@
+  <!--Breadcrumbs-->
+  <div class="row row-gov">
+
+      <div id="breadcrumbs" class="col-md-12  lg-mt-10">
+          <ul class="breadcrumbs-gov hidden-print">
+              <!--HP link-->
+              <li><a href="/he" target="_self">gov.il</a></li>
+              <!-- Generate Link to Collector-->
+              <li><a href="/apps/taxes" target="_self">רשות המסים בישראל</a></li>
+              <li><span class="dark-gray-txt ">{{pageTitle}}</span></li>
+          </ul>
+      </div>
+      <div class="clearfix xs-mb-25 lg-mb-30"></div>
+  </div>
+
+
+
+  <!--Logo title-->
+  <!-- <div class="row row-gov xs-mb-25 lg-mb-30 pr-logo-container">
+      <div id="OfficeLogo" class="col-xs-9">
+          <a alt="רשות המסים בישראל" class="flex-horizontal-img-title nounderline" href="/he/departments/israel_tax_authority"
+              title="רשות המסים בישראל">
+              <img class="img-responsive zoom_05 pr-zoom_04" src="/OfficeLogo/israel_tax_authority.png" title="רשות המסים בישראל">
+              <h2 [ngClass]="{'h3': pageTitle, 'h2': !pageTitle}" class="reforma-medium xs-mr-10 dark-blue-txt">רשות המסים בישראל</h2>
+          </a>
+      </div>
+  </div> -->
+
+
+
+  <!-- Header -->
+  <div class="row row-gov">
+      <!-- Title -->
+      <div class="col-xs-12 col-md-12">
+          <h1 class="h1 dark-blue-txt reforma-medium lg-mb-20 xs-mb-25">{{pageTitle}}</h1>
+          <h2 class="description-txt dark-blue-txt lg-mb-30 xs-mb-10">
+              <p *ngFor="let line of descriptionLines" style="line-height: 1.5">{{line}}</p>
+          </h2>
+
+
+          <!-- Share -->
+          <div class="row row-gov no-gutters pr-hide">
+              <div class="col-xs-12 col-md-12">
+
+
+                  <!-- Email -->
+                  <a class="nounderline" href="javascript:mailThisUrl()" target="_blank" title="אימייל">
+                      <i class="social icon-email3 blue-txt social-size" style="color:#ba0000"></i>
+                  </a>
+                  <!-- Twitter -->
+                  <a class="nounderline" id="TwitterURL" href="https://twitter.com/intent/tweet?url=" target="_blank"
+                      title="טוויטר" onclick="share(this.id)">
+                      <i class="social icon-twitter3 blue-txt social-size" style="color:#32cdfd"></i>
+                  </a>
+                  <!-- Linkdin-->
+                  <a class="nounderline" id="LinkedinURL" href=" https://www.linkedin.com/shareArticle?mini=true&amp;url="
+                      title="לינקד-אין" target="_blank" onclick="share(this.id)">
+                      <i class="social icon-linkedin3 blue-txt social-size" style="color:#0077b5"></i>
+                  </a>
+                  <!-- Facebook -->
+                  <a class="nounderline" id="FacebookURL" href="https://facebook.com/sharer.php?u=" title="פייסבוק"
+                      target="_blank" onclick="share(this.id)">
+                      <i class="social icon-facebook3  blue-txt social-size" style="color:#3a589e"></i>
+                  </a>
+                  <!-- Whatapp mobile-->
+                  <a class="nounderline visible-on-mobile" id="WhatsappURL" href="whatsapp://send?text=" title="ווטאסאפ-סמארטפון"
+                      target="_blank" onclick="share(this.id)">
+                      <i class="social icon-whatsapp3 blue-txt social-size" style="color:#29a71a"></i>
+                  </a>
+                  <!-- Whatapp desktop-->
+                  <a class="nounderline visible-on-desktop" id="WhatsappURL" href="https://web.whatsapp.com/send?text="
+                      title="ווטסאפ" target="_blank" onclick="share(this.id)">
+                      <i class="social icon-whatsapp3 blue-txt social-size" style="color:#29a71a"></i>
+                  </a>
+                  <!--horizontal line-->
+                  <div class="row row-gov lg-mb-30 xs-mb-25">
+                      <div class="col-md-12">
+                          <div class="horizontal-line-lightGrey"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>

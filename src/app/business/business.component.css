@@ -1,0 +1,166 @@
+::ng-deep .ui-widget-header {
+    background-color: #aaaaaa3b;
+}
+
+::ng-deep a{
+    color:#337ab7;
+    text-decoration:none;
+}
+
+
+/* דריסה של הכוונים של הדפדוף */
+::ng-deep .ui-paginator {
+    direction: ltr !important;
+
+ }
+
+.table-responsive th, .table-responsive td{
+    padding: 5.5px !important;
+} 
+
+.table-responsive{
+    min-height: 350px;
+} 
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+} 
+
+::ng-deep .text-right{
+    text-align: right !important;
+}
+
+::ng-deep .text-center{
+    text-align: center !important;
+}
+
+ ::ng-deep .ui-dropdown-panel, ::ng-deep .ui-autocomplete-panel{
+    top:32.5px !important;
+    right: 0px;
+    width: 250px;
+}
+
+::ng-deep .form-control{
+    border:solid 1px #285c7e;
+    border-radius:7px !important;
+    height:32px;
+    background-color:#fff;
+    padding:0 5px 0 1.5em !important;
+} 
+
+ ::ng-deep .ui-listbox-item, ::ng-deep .ui-dropdown-item, ::ng-deep .ui-autocomplete-list-item{
+    text-align:right !important;
+}
+
+ ::ng-deep th .ui-autocomplete-list-item{
+    font-family: Arial;
+}
+
+::ng-deep th .ui-state-highlight {
+    font-weight: bold !important;
+    font-family: Arial !important;
+} 
+
+::ng-deep .ui-state-highlight, ::ng-deep .ui-state-highlight mark  {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-widget .filter
+{
+    font-family: Arial;
+}
+
+::ng-deep .ui-autocomplete-dropdown{
+    top:0;
+    left: 0;
+    display: block;
+    position: absolute;
+}
+
+::ng-deep .ui-paginator {
+    background-color: white !important;
+    border: none;
+    padding-top: 10px;
+    direction: ltr !important;
+}
+
+::ng-deep .ui-paginator-element {
+    background-color: white !important;
+    color: #285c7e;
+    font-weight: normal;
+    font-family: Arial;
+    font-size: 17px !important;
+    direction: ltr !important;
+    
+}
+
+::ng-deep .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active:hover, ::ng-deep .ui-widget-header .ui-state-active
+{
+    color: #285c7e !important;
+    text-decoration: underline; 
+    font-family: Arial;
+}
+
+.ui-column-title{
+    width: 140px;
+} 
+
+
+@media (max-width: 640px) { 
+    tr{
+        border-top:solid 2px #285c7e;
+    }
+    td{
+        text-align: right !important
+    }
+}
+
+/* הסתרת אייקון החיפוש במסך קטן */
+@media (max-width: 780px) { 
+    .pi-search{
+        display: none;
+    }
+ }
+
+
+ /* הסתרת הפילטורים במסך קטן */
+ @media (max-width: 868px) { 
+    [inputStyleClass$='filter']{
+        display: none;
+    }
+ }
+
+
+
+/*למחוק לאחר עידכון הבוטסטרפ*/
+::ng-deep .w-100{
+    width: 100% !important;
+}
+
+
+
+/*
+ ::ng-deep .ui-listbox{
+    position: absolute;
+    padding: 0 10px 0 0;
+}
+/*::ng-deep .ui-listbox{
+    width: 100%;
+    padding: 0px;
+} */
+
+/* ::ng-deep .ui-lightbox{
+    padding: 0px;
+    width: 50%;
+}
+::ng-deep .ui-dropdown
+{
+    border: solid 1px #285c7e;
+    border-radius: 7px !important;
+    height: 32px;
+    background-color: #fff;
+    padding: 0 10px 0 0;
+} */
+/* .btn-link:hover{
+    background-color:whitesmoke !important;
+} */

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+
+@font-face {
+  font-family: "excel";
+  src:url("/assets/fonts/excel.eot");
+  src:url("/assets/fonts/excel.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/excel.woff") format("woff"),
+    url("/assets/fonts/excel.ttf") format("truetype"),
+    url("/assets/fonts/excel.svg#excel") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "excel" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icons-"]:before,
+[class*=" icons-"]:before {
+  font-family: "excel" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* הוספה מהסרגל החדש */
+  float:left
+}
+
+.icons-excel:before {
+  content: "\61";
+}

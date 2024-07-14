@@ -1,0 +1,292 @@
+
+
+/* בשביל הרדיו  */
+    ::ng-deep .ui-radiobutton .ui-state-default, .ui-widget-content .ui-widget {
+    border: solid 1.5px;
+    border-color: #285c7e;
+    background: white;
+     color: #285c7e;
+     font-size:15px !important;
+    /* font-size: 5px;  */
+    text-align: center;
+
+   
+}   
+/*  */
+
+
+/* עד כאן עיצובים שקשורים לרדיו בטטון */
+.OptionDiv {
+    display: -ms-flexbox;
+    display: flex;
+}
+::ng-deep .ui-datepicker {
+    display: block !important;
+}
+
+
+::ng-deep .ui-datepicker-header {
+    background-color: transparent !important;
+    border: none;
+}
+
+::ng-deep .ui-datepicker select.ui-datepicker-month, ::ng-deep .ui-datepicker select.ui-datepicker-year {
+    color: #285c7e !important;
+    filter: none;
+}
+
+::ng-deep .ui-datepicker-current-day .ui-state-active {
+    background-color: white !important;
+}
+
+::ng-deep .ui-datepicker-calendar-container .ui-state-default {
+    color: rgb(89, 89, 89);
+}
+
+::ng-deep .form-control {
+    /* #285c7e */
+    border: solid 1px #285c7e;
+    border-radius: 7px !important;
+    background-color: #fff;
+    padding: 0 5px 0 1.5em !important;
+    display: inline !important;
+}
+
+.table-responsive th, .table-responsive td {
+    padding: 5.5px !important;
+}
+
+.table-responsive {
+    min-height: 350px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active, ::ng-deep .ui-widget-content .ui-state-active:hover, ::ng-deep .ui-widget-header .ui-state-active {
+    color: #285c7e !important;
+    text-decoration: underline;
+    font-family: Arial;
+}
+
+.ui-column-title {
+    width: 140px;
+}
+
+::ng-deep .ui-listbox-item, ::ng-deep .ui-dropdown-item, ::ng-deep .ui-autocomplete-list-item {
+    text-align: right !important;
+}
+
+::ng-deep th .ui-autocomplete-list-item {
+    font-family: Arial;
+}
+
+::ng-deep th .ui-state-highlight {
+    font-weight: bold !important;
+    font-family: Arial !important;
+}
+
+::ng-deep .ui-state-highlight, ::ng-deep .ui-state-highlight mark {
+    background-color: #f9f9f9;
+}
+
+::ng-deep .ui-widget .filter {
+    font-family: Arial;
+   
+}
+
+::ng-deep .ui-autocomplete-dropdown {
+    top: 0;
+    left: 0;
+    display: block;
+    position: absolute;
+}
+
+::ng-deep .ui-autocomplete, ::ng-deep .ui-calendar {
+    width: 100%;
+}
+
+::ng-deep .text-right {
+    text-align: right !important;
+}
+
+::ng-deep .ui-calendar-button {
+    left: -3px;
+}
+
+@media (max-width: 640px) {
+    tr {
+        border-top: solid 2px #285c7e;
+    }
+    td {
+        text-align: right !important
+    }
+}
+
+/* הסתרת אייקון החיפוש במסך קטן */
+
+@media (max-width: 780px) {
+    .pi-search {
+        display: none;
+    }
+}
+
+/* הסתרת הפילטורים במסך קטן */
+
+@media (max-width: 868px) {
+    [inputStyleClass$='filter'] {
+        display: none;
+    }
+}
+
+/*לבדוק למה לא עובד?? */
+
+/* הסתרת האיקון בלוח שנה במסך קטן */
+
+@media (max-width: 868px) {
+    [showIcon$='true'] {
+        display: none;
+    }
+}
+
+@media (max-width: 868px) {
+    .elem-pl {
+        padding-left: 10px;
+    }
+}
+
+::ng-deep .ui-paginator-element {
+    background-color: white !important;
+    color: #285c7e;
+    font-weight: normal;
+    font-family: Arial;
+    font-size: 17px !important;
+}
+
+::ng-deep .ui-paginator {
+    background-color: white !important;
+    border: none;
+    padding-top: 10px;
+}
+
+
+/* סידור החיצים בפקד התאריך מימין לשמאל  */
+
+::ng-deep .ui-datepicker-prev {
+    right: .125em !important;
+    left: auto !important;
+}
+
+::ng-deep .pi-chevron-left:before {
+    content: "\e901" !important;
+    color: #285c7e;
+}
+
+::ng-deep .ui-datepicker-next {
+    left: .125em !important;
+    right: auto !important;
+}
+
+::ng-deep .pi-chevron-right:before {
+    content: "\e900" !important;
+    color: #285c7e;
+}
+
+/* הסתרת אייקון מיון שמוצג קבוע על מנת שיוצג רק בעת מיון */
+::ng-deep .pi-sort
+{
+    display: none;
+}
+
+
+/* הגדרת צבע אייקונים של המיון */
+::ng-deep .pi-sort-up, ::ng-deep .pi-sort-down
+{
+    color:#285c7e;
+}
+
+/* הכתב של האטוקומפלט */
+::ng-deep  .ui-widget  {
+    font-size: 17px !important;
+   
+    
+}
+
+
+
+
+::ng-deep .requiredClass
+{
+    border: solid 1px  red !important;
+    /* border:solid 1px;
+    border-color: red; */
+    /* border-radius: 7px !important; */
+    /* background-color: #fff; */
+    /* padding: 0 5px 0 1.5em !important; */
+    /* display: inline !important; */
+   
+}
+/* input.ng-invalid.ng-touched  כדי שלא יהיה מיד מסגרת */
+input.ng-invalid{
+    /* לפי תהילה */
+    /* border:solid 2px; */
+    border-color: red;
+}
+
+.input-error {
+    font-size: 14px;
+    color: #b60000;
+    width: 350px;
+    text-align: right;
+}
+
+/* ::ng-deep.customs-input {
+    background: url(/CustomsPilotCdn/Content/Shared/Styles/jqueryui/themes/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png) repeat-x scroll 50% bottom #fcfdfd;
+    border: 1px solid #c5dbec;
+    border-radius: 5px 5px 5px 5px;
+    height: 22px;
+    margin: 1px;
+    padding: 0 1px;
+    width: 150px;
+}
+.tehila-input-validation-message {
+    display: none;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+ */
+
+ /* מסגרת לדיב */
+ .example1 {
+    /* border: 2px solid  #595959;
+    padding: 10px;
+    border-radius: 25px; */
+    border: 1px solid #dee2e6!important;
+    border-color: grey!important;
+    border-radius: 1rem!important;
+  }
+  /* "קשור לעיצוב של ה"רדיו בטון */
+  ::ng-deep label {
+    margin-bottom: 1px !important;
+    /* font-weight: 600 ;מקור */
+    font-weight: 600 !important;
+    font-family:  Arial !important;
+  
+
+  }
+  ::ng-deep .ui-radiobutton .ui-state-default
+  {
+      /* עושה רווח בין המלל לעיגול עצמו */
+    margin: 5px;
+      /* בשביל המירכוז שהכיתוב יהיו במקביל לאוטוקומפלט */
+      /* margin-top: 8px !important; */
+  }
+  ::ng-deep .ui-radiobutton
+  {
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+  }
+  
